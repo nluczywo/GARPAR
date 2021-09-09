@@ -27,7 +27,8 @@ def risso_candidate_entropy(windows_size=4):
     modificated_entropy = _ENT * (first_part + second_part)
     return modificated_entropy
 
-risso_candidate_entropy(7)
+risso_candidate_entropy(7) #no definitivo
+
 
 
 #def ngenerator(tm1, random):
