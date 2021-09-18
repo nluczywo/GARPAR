@@ -33,6 +33,12 @@ def risso_candidate_entropy(windows_size=4):
     return modificated_entropy
 
 
+def nearest(arr, v):
+    diff = np.abs(np.subtract(arr, v))
+    idx = np.argmin(diff)
+    return arr[idx]
+
+
 # def ngenerator(tm1, random):
 #    i = random.normal(loc=tm1, scale=0.01)
 #    return tm1 + i

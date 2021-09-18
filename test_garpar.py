@@ -25,3 +25,8 @@ def test_risso_candidate_entropy(windows_size, h):
 def test_risso_candidate_entropy_le0(windows_size):
     with pytest.raises(ValueError):
         gp.risso_candidate_entropy(windows_size)
+
+
+def test_nearest():
+    assert gp.nearest([0.1, -0.98], 0) == 0.1
+    assert gp.nearest([0.1, -0.98], -0.99) == -0.98
