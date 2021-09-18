@@ -8,12 +8,11 @@ Created on Wed Sep  1 15:09:17 2021
 
 
 import numpy as np
-import pandas as pd
 
 _ENT = -1 / np.log2(2)
 
 
-def risso_candidate_entropy(windows_size=4):
+def risso_candidate_entropy(windows_size):
     if windows_size <= 0:
         raise ValueError("'windows_size' must be > 0")
 
@@ -30,13 +29,24 @@ def risso_candidate_entropy(windows_size=4):
     second_part = (1 - probability_loss) * np.log2(1 - probability_loss)
 
     modificated_entropy = _ENT * (first_part + second_part)
-    return modificated_entropy
+    return modificated_entropy, probability_loss
 
 
-def nearest(arr, v):
+def argnearest(arr, v):
     diff = np.abs(np.subtract(arr, v))
     idx = np.argmin(diff)
-    return arr[idx]
+    return idx
+
+
+def loss_sequence(windows_size, probability_loss=0.5, seed=None):
+    random = np.random.default_rng(seed=seed)
+    probability_win = 1 - probability_loss
+    sequence = random.choice(
+        [True, False], size=windows_size, p=[probability_loss, probability_win]
+    )
+    if random.choice([True, False]):
+        sequence = ~sequence
+    return sequence
 
 
 # def ngenerator(tm1, random):

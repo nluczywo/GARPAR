@@ -17,8 +17,8 @@ import garpar as gp
     ],
 )
 def test_risso_candidate_entropy(windows_size, h):
-    result = gp.risso_candidate_entropy(windows_size)
-    assert np.allclose(result, h, atol=1e-05)
+    me, _ = gp.risso_candidate_entropy(windows_size)
+    assert np.allclose(me, h, atol=1e-05)
 
 
 @pytest.mark.parametrize("windows_size", [0, -1])
@@ -27,6 +27,25 @@ def test_risso_candidate_entropy_le0(windows_size):
         gp.risso_candidate_entropy(windows_size)
 
 
-def test_nearest():
-    assert gp.nearest([0.1, -0.98], 0) == 0.1
-    assert gp.nearest([0.1, -0.98], -0.99) == -0.98
+def test_argnearest():
+    assert gp.argnearest([0.1, -0.98], 0) == 0
+    assert gp.argnearest([0.1, -0.98], -0.99) == 1
+
+
+@pytest.mark.parametrize(
+    "windows_size, sequence",
+    [
+        (1, [True]),
+        (2, [False, True]),
+        (3, [False, True, False]),
+        (4, [False, True, False, True]),
+        (5, [True, False, True, False, True]),
+        (6, [True, False, True, False, True, False]),
+        (7, [True, False, True, False, True, False, True]),
+    ],
+)
+def test_loss_sequence(windows_size, sequence):
+    result = gp.loss_sequence(
+        probability_loss=0.33, windows_size=windows_size, seed=10
+    )
+    assert np.all(result == sequence)
