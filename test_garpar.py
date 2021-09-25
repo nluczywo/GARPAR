@@ -30,6 +30,7 @@ def test_risso_candidate_entropy_le0(windows_size):
 def test_argnearest():
     assert gp.argnearest([0.1, -0.98], 0) == 0
     assert gp.argnearest([0.1, -0.98], -0.99) == 1
+    assert gp.argnearest([0.1, -0.10], 0.1) == 0
 
 
 @pytest.mark.parametrize(
@@ -46,7 +47,7 @@ def test_argnearest():
 )
 def test_loss_sequence(windows_size, sequence):
     result = gp.loss_sequence(
-        probability_loss=0.33, windows_size=windows_size, seed=10
+        loss_probability=0.33, windows_size=windows_size, seed=10
     )
     assert np.all(result == sequence)
 
