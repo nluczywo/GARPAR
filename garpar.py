@@ -49,6 +49,14 @@ def loss_sequence(windows_size, probability_loss=0.5, seed=None):
     return sequence
 
 
+def make_stock_price(price, loss, seed=None):
+    random = np.random.default_rng(seed=seed)
+    sign = -1 if loss else 1
+    day_return = sign * np.abs(random.normal(0, 1))
+    new_price = price + day_return
+    return new_price
+
+
 # def ngenerator(tm1, random):
 #    i = random.normal(loc=tm1, scale=0.01)
 #    return tm1 + i

@@ -49,3 +49,8 @@ def test_loss_sequence(windows_size, sequence):
         probability_loss=0.33, windows_size=windows_size, seed=10
     )
     assert np.all(result == sequence)
+
+
+def test_make_stock_price():
+    assert gp.make_stock_price(100, True) < 100
+    assert gp.make_stock_price(100, False) > 100
