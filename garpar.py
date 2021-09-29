@@ -51,11 +51,13 @@ def loss_sequence(windows_size, loss_probability, seed=None):
 
 
 def make_stock_price(price, loss, seed=None):
+    if price == 0. :
+        return 0.
     random = np.random.default_rng(seed=seed)
     sign = -1 if loss else 1
     day_return = sign * np.abs(random.normal(0, 1))
     new_price = price + day_return
-    return new_price
+    return 0. if new_price < 0 else new_price
 
 
 def make_stock(
