@@ -14,13 +14,14 @@ setup(
     author="Nadia Luczywo",
     author_email="nluczywo@gmail.com",
     url="https://github.com/nluczywo/GARPAR",
-
     py_modules=["garpar"],
-
     license="The MIT License",
     install_requires=REQUIREMENTS,
-    keywords=["market simulation", "informacional eficiency",
-              "portfolio optimization"],
+    keywords=[
+        "market simulation",
+        "informacional eficiency",
+        "portfolio optimization",
+    ],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Education",

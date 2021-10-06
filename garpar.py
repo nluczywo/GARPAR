@@ -8,9 +8,8 @@ Created on Wed Sep  1 15:09:17 2021
 
 
 import numpy as np
-import pandas as pd
 
-_ENT = -1 / np.log2(2)
+import pandas as pd
 
 
 def risso_candidate_entropy(windows_size):
@@ -29,7 +28,7 @@ def risso_candidate_entropy(windows_size):
     first_part = loss_probability * np.log2(loss_probability)
     second_part = (1 - loss_probability) * np.log2(1 - loss_probability)
 
-    modificated_entropy = _ENT * (first_part + second_part)
+    modificated_entropy = -1 * (first_part + second_part)
     return modificated_entropy, loss_probability
 
 

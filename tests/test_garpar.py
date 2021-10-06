@@ -1,7 +1,8 @@
-import numpy as np
-import pytest
-
 import garpar as gp
+
+import numpy as np
+
+import pytest
 
 
 @pytest.mark.parametrize(
@@ -55,5 +56,5 @@ def test_loss_sequence(windows_size, sequence):
 def test_make_stock_price():
     assert gp.make_stock_price(100, True) < 100
     assert gp.make_stock_price(100, False) > 100
-    assert gp.make_stock_price(0, False) == 100
-    assert gp.make_stock_price(0, True) == 100
+    assert gp.make_stock_price(0, False) == 0
+    assert gp.make_stock_price(0, True) == 0
