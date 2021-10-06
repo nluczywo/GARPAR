@@ -8,16 +8,14 @@ REQUIREMENTS = ["numpy", "pandas"]
 setup(
     name="GARPAR",
     version="0.1.1",
-    description="Generación y análisis de retornos de portafolios artificiales y reales ",
+    description="Market generation and portfolio analysis",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     author="Nadia Luczywo",
     author_email="nluczywo@gmail.com",
     url="https://github.com/nluczywo/GARPAR",
 
-    py_modules=["garpar"],    #    <------- aca van los modulos
-    #packages=[],    #    <------- aca van los paquetes completar luego
-    include_package_data=False,    #    <------- solo si hay datos
+    py_modules=["garpar"],
 
     license="The MIT License",
     install_requires=REQUIREMENTS,
