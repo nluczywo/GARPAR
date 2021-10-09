@@ -2,6 +2,8 @@ import garpar as gp
 
 import numpy as np
 
+import pandas as pd
+
 import pytest
 
 
@@ -58,3 +60,41 @@ def test_make_stock_price():
     assert gp.make_stock_price(100, False) > 100
     assert gp.make_stock_price(0, False) == 0
     assert gp.make_stock_price(0, True) == 0
+
+
+def test_make_market():
+
+    expected = pd.DataFrame(
+        {
+            "window": [0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+            "day": [0, 1, 2, 3, 4, 0, 1, 2, 3, 4],
+            "stock_0_price": [
+                100.12784040316728,
+                100.44408299551087,
+                100.46088415301516,
+                101.31392808058874,
+                100.43453010572591,
+                100.8032808898084,
+                101.7621634906374,
+                102.64061379194467,
+                102.69053970293092,
+                102.87540206647618,
+            ],
+            "stock_1_price": [
+                99.63455593563592,
+                99.22182332403993,
+                98.79100232103205,
+                96.6493547201616,
+                97.05576973654621,
+                96.21561325958368,
+                95.39113204389244,
+                94.74053925606773,
+                95.48379342727118,
+                96.02694769557638,
+            ],
+        }
+    )
+    result = gp.make_market(
+        window_number=2, windows_size=5, stock_number=2, seed=42
+    )
+    pd.testing.assert_frame_equal(result, expected, atol=1e-10)
