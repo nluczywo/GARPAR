@@ -1,3 +1,10 @@
+
+# This file is part of the
+#   Garpar Project (https://github.com/nluczywo/GARPAR).
+# Copyright (c) 2021, Nadia Luczywo
+# License: MIT
+#   Full Text: https://github.com/nluczywo/GARPAR/blob/master/LICENSE
+
 import garpar as gp
 
 import numpy as np

@@ -1,3 +1,10 @@
+
+# This file is part of the
+#   Garpar Project (https://github.com/nluczywo/GARPAR).
+# Copyright (c) 2021, Nadia Luczywo
+# License: MIT
+#   Full Text: https://github.com/nluczywo/GARPAR/blob/master/LICENSE
+
 from setuptools import setup
 
 with open("README.md", "r") as fp:

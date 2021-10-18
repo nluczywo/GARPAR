@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+
+# This file is part of the
+#   Garpar Project (https://github.com/nluczywo/GARPAR).
+# Copyright (c) 2021, Nadia Luczywo
+# License: MIT
+#   Full Text: https://github.com/nluczywo/GARPAR/blob/master/LICENSE
+
 """
 Created on Wed Sep  1 15:09:17 2021
 
