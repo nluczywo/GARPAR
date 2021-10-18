@@ -1,4 +1,3 @@
-
 # This file is part of the
 #   Garpar Project (https://github.com/nluczywo/GARPAR).
 # Copyright (c) 2021, Nadia Luczywo
